@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/style.scss",
+        "../scss/_buttons.scss",
+        "../scss/_footer.scss",
+        "../scss/_forms.scss",
+        "../scss/_general.scss",
+        "../scss/_media.scss"
+    ],
+    "names": [],
+    "file": "style.min.css"
+}

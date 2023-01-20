@@ -13,3 +13,42 @@
 	text-transform: uppercase
 	border: 1px solid #259609
 	border-radius: 3px
+	transition: 0.5s ease
+	&:hover
+		cursor: pointer
+		color: #ffffff
+		background: linear-gradient(0.25turn, #4ba159, #48fd00, #f69d3c)
+		box-shadow: 10px 5px 5px #6a9460
+.load_more
+	user-select: none
+	margin: 0 auto
+	margin-bottom: 60px
+	display: flex
+	justify-content: space-evenly
+	align-items: center
+	width: 220px
+	height: 44px
+	border-radius: 10px
+	background: transparent
+	
+	color: #3E3E3E
+	transition: 0.5s ease
+	&_text
+		font-size: 14px
+		font-weight: bold
+		text-transform: uppercase
+		text-decoration: none
+		pointer-events: none
+	&_img
+		pointer-events: none
+		content: ''
+		width: 20px
+		height: 20px
+		background: url(../icons/icon_refresh.svg) no-repeat
+	&:hover
+		cursor: pointer
+		background: linear-gradient(0.25turn, #259609, #48fd00)
+		box-shadow: 10px 5px 5px #6a9460
+		color: #fff
+		.load_more_img
+			background: url(../icons/icon_refresh_w.svg) no-repeat

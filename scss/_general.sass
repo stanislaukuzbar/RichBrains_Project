@@ -9,19 +9,26 @@ body
 	max-width: 1200px
 	margin: 0 auto
 header
+	position: relative
+	width: 100%
+	height: 120px
+.header__logo
 	position: fixed
 	width: 100%
-	z-index: 5
-.header__logo
+	height: 120px
+	z-index: 999
+	background-color: #F7F7F7
 	font-family: 'Playfair Display'
-	margin: 50px 0 30px 0
+	padding: 50px 0 20px 0
 	font-style: normal
 	font-weight: 400
 	font-size: 30px
 	line-height: 46px
 	color: #3E3E3E
 .menu
-	top: 130px
+	margin-top: 10px
+	user-select: none
+	max-height: 100%
 	position: fixed
 	font-family: 'Helvetica'
 	width: 286px
@@ -42,8 +49,17 @@ header
 		margin: 20px auto
 		background-color: #ECECEC
 		border: 1px solid #ECECEC
+	&__content
+		max-height: 500px
+		overflow-y: auto
+	&__close
+		display: none
+		position: absolute
+		top: 25px
+		right: 0
+
 .menu-item
-	margin: 28px
+	margin: 24px 24px
 	font-family: 'Helvetica'
 	font-style: normal
 	font-weight: 700
@@ -53,12 +69,18 @@ header
 	cursor: pointer
 	&__wrapper
 		display: flex
+		justify-content: space-between
+		align-items: center
 	&__text
 		width: 220px
 	&__icon
-		height: 20px
+		display: flex
+		justify-content: center
+		content: ''
+		width: 6px
+		height: 12px
+		background: url(../icons/arrow.svg) no-repeat
 		transition: 0.5s all
-		margin-left: 5px
 .submenu
 	display: none
 	width: 243px
@@ -71,100 +93,153 @@ header
 	border-radius: 3px
 	&:hover
 		background: rgba(37, 150, 9, 0.199)
-.menu-item .submenu:nth_child(1)
-	margin-top: 10px
+.menu-item_active
+	margin-bottom: 0
 .menu-item_active .submenu
-	display: block	
+	display: block
+.menu-item_active .menu-item__text
+	transition: 0.5s all
+	color: #259609
 .menu-item_active .menu-item__icon
 	transform: rotate(90deg)
+	background: url(../icons/arrow_green.svg) no-repeat
+
+
+.mobile-menu
+	display: none
+	&__content
+		margin-left: 70px
+		width: 300px
+		display: flex
+		align-items: center
+		height: 52px
+		background: #F1F1F1
+		padding: 15px
+		margin-bottom: 10px
+	&__title
+		margin: 0 40px 0 15px
+		font-weight: 500
+		font-size: 16px
+		line-height: 22px
+		text-transform: uppercase
+
 
 .main
+	margin-top: 10px
 	margin-left: 286px
-
 .catalog
+	user-select: none
 	font-family: 'Helvetica'
-	display: flex
-	padding: 15px
+	padding:  0 15px
 	&__content
-		margin-top: 114px
-		display: none
-		justify-content: space-evenly
+		width: 100%
+		display: flex
+		justify-content: space-between
 		flex-wrap: wrap
-		&_active
-			display: flex
-	&-item
-		width: 282px
-		min-height: 405px
-		background: #FFFFFF
-		border: 2px solid #E8E8E8
-		box-sizing: border-box
-		padding: 20px 20px 26px 20px
-		margin-bottom: 20px
-		&__img
-			position: absolute
-			right: 5px
-			display: block
-			max-width: 100%
-			height: 34px
-			margin: 0 auto
-		&__title
-			margin-top: 60px
-			font-size: 13px
-			line-height: 20px
-			text-transform: uppercase
-			color: #259609
-		&__subtitle
-			height: 25px
-			margin: 10px auto
-			font-weight: bold
-			font-size: 20px
-			line-height: 30px
-			color: #3E3E3E
-		&__info
-			margin-top: 100px
-			width: 250px
-			height: 41px
-			font-weight: 300
-			font-size: 15px
-			line-height: 22px
-			text-align: center
-			color: #0D0D0D
-		&__link
-			display: block
-			margin: 20px auto 0 auto
-			width: 220px
-			height: 44px
-			font-size: 14px
-			line-height: 44px
+	
+.card
+	min-width: 286px
+	min-height: 405px
+	background: #FFFFFF
+	border: 2px solid #E8E8E8
+	border-radius: 5px
+	box-sizing: border-box
+	box-shadow: 5px 10px 10px 10px rgba(229, 233, 246, 0.63);
+	margin-bottom: 20px
+	&__header
+		position: absolute
+		border-radius: 5px 5px 0 0
+		top: 0
+		left: 0
+		width: 100%
+		height: 6px
+		background: #259609
+	&__img
+		position: absolute
+		right: 30px
+		display: block
+		max-width: 100%
+		height: 34px
+		margin: 0 auto
+	&__title
+		margin-top: 60px
+		font-size: 13px
+		line-height: 20px
+		text-transform: uppercase
+		color: #259609
+	&__subtitle
+		margin: 10px auto
+		font-weight: bold
+		font-size: 20px
+		line-height: 30px
+		color: #3E3E3E
+	&__info
+		margin: 70px 0 30px 0
+		min-height: 41px
+		font-weight: 300
+		font-size: 15px
+		line-height: 22px
+		text-align: center
+		color: #0D0D0D
+	&__link
+		position: absolute
+		bottom: 30px
+		width: 220px
+		height: 44px
+		font-size: 14px
+		font-weight: 700
+		line-height: 44px
+		border-radius: 3px
+		text-align: center
+		text-decoration: none
+		text-transform: uppercase
+		transition: 0.5s ease
+		&_front
 			background: #259609
 			color: #fff
-			border-radius: 3px
-			text-align: center
+		&_back
+			background: #fff
+			color: #259609
+		&:hover
+			color: #fdb312
 			text-decoration: none
-			text-transform: uppercase
-			&:hover
-				color: #6135c9
-				text-decoration: none
-		&__inner
-			width: 100%
-			height: 100%
-			transition: transform 1s
-			transform-style: preserve-3d
-			cursor: pointer
-			position: relative
-		&__content
-			position: absolute
-			width: 100%
-			height: 100%
-			backface-visibility: hidden
-			overflow: hidden
-				
-.catalog-item__inner .is-flipped 
-	transform: rotate(180deg)			
-				
-		
-		
+	&__inner
+		width: 100%
+		height: 100%
+		transform-style: preserve-3d
+		transition: transform 0.5s ease
+		position: relative
+	&__content
 
+// number of cards displayed	
+.card:nth-child(6) ~ .card
+	display: none
+
+.card.flip .card__inner
+	transform: rotateY(180deg)
+.card.flip .card__header
+	visibility: hidden
+.card__content_front, .card__content_back
+	border-radius: 5px
+	padding: 30px
+	backface-visibility: hidden
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+.card__content_front
+	transform: rotateY(0deg)
+	z-index: 2
+.card__content_back
+	color: #ffffff
+	background: #259609
+	transform: rotateY(180deg)
+.card.active
+	cursor: pointer
+	opacity: 1
+	z-index: 10
+	transform: translateX(0) rotateY(0deg)
 
 .info_item
 	display: flex
@@ -175,9 +250,35 @@ header
 	justify-content: center
 	width: 20px
 .info_content
-	width: 120px
 	margin-left: 20px
 	font-size: 14px
 	line-height: 16px
 	text-align: left
 	color: #3E3E3E
+
+.back_icon
+	position: absolute
+	right: 20px	
+.back_title
+	width: 172px
+	font-size: 16px
+	font-weight: bold
+	line-height: 22px
+.back_duration, .back_date
+	margin-top: 20px
+	font-weight: bold
+	font-size: 14px
+	line-height: 22px
+.back_text
+	font-size: 14px
+	line-height: 22px
+.back_price
+	margin-top: 30px
+	font-size: 32px
+	font-weight: bold
+	line-height: 44px
+
+.load_more.loaded
+	visibility: hidden
+	opacity: 0
+	height: 0

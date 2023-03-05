@@ -18,7 +18,7 @@ header
 	height: 120px
 	z-index: 999
 	background-color: #F7F7F7
-	font-family: 'Playfair Display'
+	font-family: 'PlayfairDisplay-Black'
 	padding: 50px 0 20px 0
 	font-style: normal
 	font-weight: 400
@@ -146,14 +146,6 @@ header
 	box-sizing: border-box
 	box-shadow: 5px 10px 10px 10px rgba(229, 233, 246, 0.63);
 	margin-bottom: 20px
-	&__header
-		position: absolute
-		border-radius: 5px 5px 0 0
-		top: 0
-		left: 0
-		width: 100%
-		height: 6px
-		background: #259609
 	&__img
 		position: absolute
 		right: 30px
@@ -210,6 +202,15 @@ header
 		transition: transform 0.5s ease
 		position: relative
 	&__content
+.card::before
+	content: ''
+	position: absolute
+	border-radius: 5px 5px 0 0
+	top: 0
+	left: 0
+	width: 100%
+	height: 6px
+	background: #259609
 
 // number of cards displayed	
 .card:nth-child(6) ~ .card
